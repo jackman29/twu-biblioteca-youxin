@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 public class ExampleTest {
     BibliotecaApp app;
@@ -22,5 +23,10 @@ public class ExampleTest {
     @Test
     public void testReset() {
         assertNotNull(app);
+    }
+
+    @Test
+    public void should_return_books() {
+        assertTrue(app.findBooks().size() > 0);
     }
 }
