@@ -3,6 +3,9 @@ package com.twu.biblioteca;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.Date;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -28,5 +31,11 @@ public class ExampleTest {
     @Test
     public void should_return_books() {
         assertTrue(app.findBooks().size() > 0);
+    }
+
+    @Test
+    public void should_return_book_detail() {
+        assertEquals("Gauss", app.findBooks().get(0).getAuthor());
+        assertEquals(new Date(1990, 10, 10), app.findBooks().get(0).getPublishDate());
     }
 }
