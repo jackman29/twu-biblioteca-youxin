@@ -38,4 +38,9 @@ public class ExampleTest {
         assertEquals("Gauss", app.findBooks().get(0).getAuthor());
         assertEquals(new Date(1990, 10, 10), app.findBooks().get(0).getPublishDate());
     }
+
+    @Test
+    public void should_return_main_menu() {
+        assertEquals("[List Books]", app.getMenu());
+    }
 }

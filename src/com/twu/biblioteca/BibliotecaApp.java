@@ -1,11 +1,13 @@
 package com.twu.biblioteca;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 
 public class BibliotecaApp {
     private ArrayList<Book> allBooks = new ArrayList<Book>();
-
+    private MenuItem[] menu = new MenuItem[]{MenuItem.LIST_BOOKS};
     public BibliotecaApp() {
         allBooks.add(new Book("math", "Gauss", new Date(1990, 10, 10)));
     }
@@ -16,6 +18,25 @@ public class BibliotecaApp {
 
     public ArrayList<Book> findBooks() {
         return allBooks;
+    }
+
+    public String getMenu() {
+        return Arrays.toString(menu);
+    }
+}
+
+enum MenuItem {
+    LIST_BOOKS("List Books"),;
+
+    private String name;
+
+    MenuItem(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }
 
