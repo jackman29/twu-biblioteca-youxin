@@ -23,6 +23,17 @@ public class BibliotecaApp {
     public String getMenu() {
         return Arrays.toString(menu);
     }
+
+    public String execute(String cmd) {
+        int cmdCount = menu.length;
+        String msg = "Select a valid option!";
+        for (int i = 0; i < cmdCount; i++) {
+            if (menu[i].toString().equals(cmd)) {
+                msg = "OK";
+            }
+        }
+        return msg;
+    }
 }
 
 enum MenuItem {

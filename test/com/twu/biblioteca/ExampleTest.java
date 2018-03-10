@@ -43,4 +43,9 @@ public class ExampleTest {
     public void should_return_main_menu() {
         assertEquals("[List Books]", app.getMenu());
     }
+
+    @Test
+    public void shouled_return_invalid_msg() {
+        assertEquals("Select a valid option!", app.execute("err"));
+    }
 }
