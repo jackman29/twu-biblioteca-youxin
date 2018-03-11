@@ -7,7 +7,7 @@ import java.util.Date;
 
 public class BibliotecaApp {
     private ArrayList<Book> allBooks = new ArrayList<Book>();
-    private MenuItem[] menu = new MenuItem[]{MenuItem.LIST_BOOKS};
+    private MenuItem[] menu = new MenuItem[]{MenuItem.LIST_BOOKS, MenuItem.QUIT};
     public BibliotecaApp() {
         allBooks.add(new Book("math", "Gauss", new Date(1990, 10, 10)));
     }
@@ -30,6 +30,7 @@ public class BibliotecaApp {
         for (int i = 0; i < cmdCount; i++) {
             if (menu[i].toString().equals(cmd)) {
                 msg = "OK";
+
             }
         }
         return msg;
@@ -37,7 +38,7 @@ public class BibliotecaApp {
 }
 
 enum MenuItem {
-    LIST_BOOKS("List Books"),;
+    LIST_BOOKS("List Books"),QUIT("QUIT");
 
     private String name;
 

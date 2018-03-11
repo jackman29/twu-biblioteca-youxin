@@ -41,11 +41,16 @@ public class ExampleTest {
 
     @Test
     public void should_return_main_menu() {
-        assertEquals("[List Books]", app.getMenu());
+        assertTrue( app.getMenu().contains("List Books"));
     }
 
     @Test
     public void shouled_return_invalid_msg() {
         assertEquals("Select a valid option!", app.execute("err"));
+    }
+
+    @Test
+    public void shouled_quit_app() {
+
     }
 }
