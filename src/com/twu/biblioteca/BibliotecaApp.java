@@ -30,7 +30,9 @@ public class BibliotecaApp {
         for (int i = 0; i < cmdCount; i++) {
             if (menu[i].toString().equals(cmd)) {
                 msg = "OK";
-
+                if (i == 1){
+                    System.exit(0);
+                }
             }
         }
         return msg;
