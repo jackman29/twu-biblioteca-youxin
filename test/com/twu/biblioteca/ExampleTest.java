@@ -45,12 +45,22 @@ public class ExampleTest {
     }
 
     @Test
-    public void shouled_return_invalid_msg() {
+    public void should_return_invalid_msg() {
         assertEquals("Select a valid option!", app.execute("err"));
     }
 
     @Test
-    public void shouled_quit_app() {
+    public void should_quit_app() {
 
+    }
+
+    @Test
+    public void should_checkout() {
+        assertEquals(app.checkout("math"), "Thank you! Enjoy the book");
+    }
+
+    @Test
+    public void should_checkout_fail() {
+        assertEquals(app.checkout("TDD"), "That book is not available.");
     }
 }

@@ -1,6 +1,5 @@
 package com.twu.biblioteca;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -36,6 +35,14 @@ public class BibliotecaApp {
             }
         }
         return msg;
+    }
+
+    public String checkout(String bookName) {
+        boolean available = allBooks.contains(new Book(bookName));
+        if (available) {
+            return "Thank you! Enjoy the book";
+        }
+        return "That book is not available.";
     }
 }
 
@@ -89,5 +96,17 @@ class Book {
         this.name = name;
         this.author = author;
         this.publishDate = publishDate;
+    }
+
+    public Book(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Book) {
+            return this.name.equals(((Book) obj).getName());
+        }
+        return false;
     }
 }
