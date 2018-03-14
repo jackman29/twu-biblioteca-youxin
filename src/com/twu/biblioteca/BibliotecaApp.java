@@ -6,9 +6,11 @@ import java.util.Date;
 
 public class BibliotecaApp {
     private ArrayList<Book> allBooks = new ArrayList<Book>();
+    private ArrayList<Book> allBooksCopy;
     private MenuItem[] menu = new MenuItem[]{MenuItem.LIST_BOOKS, MenuItem.QUIT};
     public BibliotecaApp() {
         allBooks.add(new Book("math", "Gauss", new Date(1990, 10, 10)));
+        allBooksCopy = new ArrayList<Book>(allBooks);
     }
 
     public static void main(String[] args) {
@@ -38,11 +40,23 @@ public class BibliotecaApp {
     }
 
     public String checkout(String bookName) {
-        boolean available = allBooks.contains(new Book(bookName));
+        Book book = new Book(bookName);
+        boolean available = allBooks.contains(book);
         if (available) {
+            allBooks.remove(book);
             return "Thank you! Enjoy the book";
         }
         return "That book is not available.";
+    }
+
+    public String returnBook(String bookName) {
+        Book book = new Book(bookName);
+        int valid = allBooksCopy.indexOf(book);
+        if (valid != -1) {
+            allBooks.add(allBooksCopy.get(valid));
+            return "Thank you for returning the book.";
+        }
+        return "That is not a valid book to return.";
     }
 }
 

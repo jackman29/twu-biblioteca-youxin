@@ -63,4 +63,14 @@ public class ExampleTest {
     public void should_checkout_fail() {
         assertEquals(app.checkout("TDD"), "That book is not available.");
     }
+
+    @Test
+    public void should_return_book() {
+        assertEquals(app.returnBook("math"), "Thank you for returning the book.");
+    }
+
+    @Test
+    public void should_return_book_fail() {
+        assertEquals(app.returnBook("TDD"), "That is not a valid book to return.");
+    }
 }
