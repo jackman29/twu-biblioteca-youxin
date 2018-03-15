@@ -26,15 +26,23 @@ public class BibliotecaApp {
     }
 
     public String execute(String cmd) {
-        int cmdCount = menu.length;
-        String msg = "Select a valid option!";
-        for (int i = 0; i < cmdCount; i++) {
-            if (menu[i].toString().equals(cmd)) {
+        String msg = "";
+        MenuItem cmdItem;
+        try {
+            cmdItem = MenuItem.valueOf(cmd);
+        } catch (Exception e) {
+            return "Select a valid option!";
+        }
+        switch (cmdItem) {
+            case LIST_BOOKS:
                 msg = "OK";
-                if (i == 1){
-                    System.exit(0);
-                }
-            }
+                break;
+            case QUIT:
+                System.exit(0);
+                break;
+            default:
+                msg = "Select a valid option!";
+
         }
         return msg;
     }
