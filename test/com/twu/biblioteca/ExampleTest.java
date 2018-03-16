@@ -4,6 +4,7 @@ package com.twu.biblioteca;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
@@ -72,5 +73,10 @@ public class ExampleTest {
     @Test
     public void should_return_book_fail() {
         assertEquals(app.returnBook("TDD"), "That is not a valid book to return.");
+    }
+
+    @Test
+    public void should_list_movies () {
+        assertTrue(app.listMovies().contains("Star Wars"));
     }
 }

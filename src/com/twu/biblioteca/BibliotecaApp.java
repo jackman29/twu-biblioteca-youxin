@@ -6,10 +6,13 @@ import java.util.Date;
 
 public class BibliotecaApp {
     private ArrayList<Book> allBooks = new ArrayList<Book>();
+    private ArrayList<Movie> allMovies = new ArrayList<Movie>();
     private ArrayList<Book> allBooksCopy;
     private MenuItem[] menu = new MenuItem[]{MenuItem.LIST_BOOKS, MenuItem.QUIT};
+
     public BibliotecaApp() {
         allBooks.add(new Book("math", "Gauss", new Date(1990, 10, 10)));
+        allMovies.add(new Movie("Star Wars"));
         allBooksCopy = new ArrayList<Book>(allBooks);
     }
 
@@ -66,10 +69,22 @@ public class BibliotecaApp {
         }
         return "That is not a valid book to return.";
     }
+
+    public String listMovies() {
+        String movies = "";
+        for (Movie movie:  allMovies
+             ) {
+            movies = movies.concat(movie.toString());
+        }
+        return (movies);
+    }
 }
 
 enum MenuItem {
-    LIST_BOOKS("List Books"),QUIT("QUIT");
+    LIST_BOOKS("List Books"),
+    CHECK_OUT("Check Out"),
+    RETURN("Return"),
+    QUIT("QUIT");
 
     private String name;
 
@@ -83,6 +98,19 @@ enum MenuItem {
     }
 }
 
+
+class Movie {
+    String name;
+
+    public Movie(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return this.name;
+    }
+}
 
 class Book {
     private String name;
